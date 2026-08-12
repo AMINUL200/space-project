@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Menu, X, ArrowDownRight } from "lucide-react";
+import { Menu, X, ArrowDownRight, Phone, Mail } from "lucide-react";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -44,9 +44,9 @@ const Navbar = () => {
       href: "#future",
     },
     {
-      id: "blog",
-      label: "Blog",
-      href: "#blog",
+      id: "team",
+      label: "Our Team",
+      href: "#team",
     },
     {
       id: "contact",
@@ -62,6 +62,37 @@ const Navbar = () => {
   return (
     <>
       {/* =====================================================
+          TOP CONTACT BAR
+      ====================================================== */}
+      <div className="fixed left-0 top-0 z-[101] hidden w-full bg-space-navy/95 backdrop-blur-sm border-b border-white/5 lg:block">
+        <div className="mx-auto flex h-10 max-w-[1440px] items-center justify-end gap-6 px-5 sm:px-8 lg:px-10 xl:px-12">
+          {/* Phone */}
+          <a
+            href="tel:+14107302656"
+            className="group flex items-center gap-2 transition-colors duration-300 hover:text-cyan"
+          >
+            <Phone size={12} className="text-cyan/60 transition-colors duration-300 group-hover:text-cyan" />
+            <span className="font-inter text-[11px] text-white/60 transition-colors duration-300 group-hover:text-white">
+              (410) 730-2656
+            </span>
+          </a>
+
+          <span className="h-4 w-px bg-white/10" />
+
+          {/* Email */}
+          <a
+            href="mailto:rabindrachander@gmail.com"
+            className="group flex items-center gap-2 transition-colors duration-300 hover:text-cyan"
+          >
+            <Mail size={12} className="text-cyan/60 transition-colors duration-300 group-hover:text-cyan" />
+            <span className="font-inter text-[11px] text-white/60 transition-colors duration-300 group-hover:text-white">
+              rabindrachander@gmail.com
+            </span>
+          </a>
+        </div>
+      </div>
+
+      {/* =====================================================
           NAVBAR
       ====================================================== */}
       <header
@@ -73,6 +104,7 @@ const Navbar = () => {
               ? "bg-space/70 backdrop-blur-xl"
               : "bg-transparent"
           }
+          lg:top-10
         `}
       >
         <div
@@ -111,7 +143,7 @@ const Navbar = () => {
               sm:text-lg
             "
           >
-            CosmoVentures
+            ARCHIES WILLIAM
           </a>
 
           {/* =================================================
@@ -123,6 +155,7 @@ const Navbar = () => {
                 key={link.id}
                 href={link.href}
                 className="
+                  group
                   relative
                   font-inter
                   text-[12px]
@@ -254,7 +287,7 @@ const Navbar = () => {
             lg:hidden
             ${
               mobileMenu
-                ? "max-h-[500px] opacity-100"
+                ? "max-h-[600px] opacity-100"
                 : "max-h-0 opacity-0"
             }
           `}
@@ -266,12 +299,30 @@ const Navbar = () => {
               rounded-2xl
               border
               border-white/10
-              bg-space-navy/90
+              bg-space-navy/95
               p-4
               shadow-2xl
               backdrop-blur-xl
             "
           >
+            {/* Mobile Contact Info */}
+            <div className="mb-4 space-y-2 border-b border-white/10 pb-4">
+              <a
+                href="tel:+14107302656"
+                className="flex items-center gap-2 px-3 py-1.5 font-inter text-xs text-white/60 transition-colors duration-300 hover:text-cyan"
+              >
+                <Phone size={14} className="text-cyan/60" />
+                (410) 730-2656
+              </a>
+              <a
+                href="mailto:rabindrachander@gmail.com"
+                className="flex items-center gap-2 px-3 py-1.5 font-inter text-xs text-white/60 transition-colors duration-300 hover:text-cyan"
+              >
+                <Mail size={14} className="text-cyan/60" />
+                rabindrachander@gmail.com
+              </a>
+            </div>
+
             <nav className="flex flex-col">
               {navLinks.map((link) => (
                 <a
@@ -317,7 +368,6 @@ const Navbar = () => {
                 "
               >
                 <span>Get Involved Now</span>
-
                 <ArrowDownRight
                   size={15}
                   strokeWidth={2.5}

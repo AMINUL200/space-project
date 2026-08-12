@@ -153,9 +153,9 @@ const Footer = () => {
               </span>
 
               <span className="font-space-grotesk text-xl font-semibold tracking-[-0.03em]">
-                COSMO
+               ARCHIES {" "}
                 <span className="text-cyan">
-                  VENTURES
+                  WILLIAM
                 </span>
               </span>
 
@@ -351,7 +351,7 @@ const Footer = () => {
                 </p>
 
                 <p className="mt-0.5 font-inter text-xs text-white/50 group-hover:text-white">
-                  hello@cosmoventures.com
+                  rabinderchander@gmail.com
                 </p>
               </div>
 
