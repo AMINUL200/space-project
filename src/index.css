@@ -1,0 +1,295 @@
+@import "tailwindcss";
+
+/* =========================================================
+   🚀 SPACE EXPLORER — GLOBAL DESIGN SYSTEM
+   Change colors here → entire website changes
+   ========================================================= */
+
+:root {
+  /* =========================
+     🌌 BACKGROUND COLORS
+     ========================= */
+
+  --color-space: #050816;
+  --color-space-navy: #0b1228;
+  --color-space-blue: #111a3a;
+
+  /* =========================
+     🔵 PRIMARY COLORS
+     ========================= */
+
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-light: #60a5fa;
+
+  /* =========================
+     ⚡ CYAN / FUTURE COLORS
+     ========================= */
+
+  --color-cyan: #22d3ee;
+  --color-cyan-dark: #0891b2;
+  --color-cyan-light: #67e8f9;
+
+  /* =========================
+     🚀 ROCKET / ACTION COLORS
+     ========================= */
+
+  --color-orange: #ff6b2c;
+  --color-orange-dark: #f97316;
+  --color-orange-light: #fb923c;
+
+  /* =========================
+     ☀️ GOLD / ENERGY
+     ========================= */
+
+  --color-gold: #fbbf24;
+  --color-gold-dark: #f59e0b;
+  --color-gold-light: #fcd34d;
+
+  /* =========================
+     🟣 NEBULA / PURPLE
+     ========================= */
+
+  --color-purple: #7c3aed;
+  --color-purple-dark: #6d28d9;
+  --color-purple-light: #a78bfa;
+
+  /* =========================
+     📝 TEXT COLORS
+     ========================= */
+
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-text-disabled: #64748b;
+
+  /* =========================
+     🧱 BORDER COLORS
+     ========================= */
+
+  --color-border: #1e293b;
+  --color-border-light: #334155;
+  --color-border-primary: rgba(37, 99, 235, 0.4);
+  --color-border-cyan: rgba(34, 211, 238, 0.4);
+
+  /* =========================
+     ✨ GLASS EFFECT
+     ========================= */
+
+  --color-glass: rgba(11, 18, 40, 0.75);
+  --color-glass-light: rgba(255, 255, 255, 0.05);
+  --color-glass-dark: rgba(5, 8, 22, 0.85);
+
+  /* =========================
+     🌈 GRADIENTS
+     ========================= */
+
+  --gradient-space:
+    linear-gradient(
+      135deg,
+      #050816 0%,
+      #0b1228 50%,
+      #111a3a 100%
+    );
+
+  --gradient-blue:
+    linear-gradient(
+      135deg,
+      #050816,
+      #172554,
+      #2563eb
+    );
+
+  --gradient-cyan:
+    linear-gradient(
+      135deg,
+      #0b1228,
+      #164e63,
+      #22d3ee
+    );
+
+  --gradient-purple:
+    linear-gradient(
+      135deg,
+      #050816,
+      #1e1b4b,
+      #7c3aed
+    );
+
+  --gradient-rocket:
+    linear-gradient(
+      135deg,
+      #ff6b2c,
+      #f97316,
+      #fbbf24
+    );
+
+  --gradient-nebula:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(37, 99, 235, 0.15),
+      transparent 35%
+    );
+
+  /* =========================
+     💡 GLOW COLORS
+     ========================= */
+
+  --glow-primary:
+    0 0 30px rgba(37, 99, 235, 0.35);
+
+  --glow-cyan:
+    0 0 30px rgba(34, 211, 238, 0.3);
+
+  --glow-orange:
+    0 0 30px rgba(255, 107, 44, 0.35);
+
+  --glow-purple:
+    0 0 30px rgba(124, 58, 237, 0.3);
+
+  /* =========================
+     🌟 COMMON SHADOWS
+     ========================= */
+
+  --shadow-sm:
+    0 4px 12px rgba(0, 0, 0, 0.2);
+
+  --shadow-md:
+    0 10px 30px rgba(0, 0, 0, 0.3);
+
+  --shadow-lg:
+    0 20px 50px rgba(0, 0, 0, 0.4);
+
+  /* =========================
+     📐 BORDER RADIUS
+     ========================= */
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+}
+
+
+/* =========================================================
+   🎨 TAILWIND V4 THEME
+   Allows classes like:
+   bg-space
+   text-primary
+   bg-cyan
+   text-muted
+   border-border
+   ========================================================= */
+
+@theme {
+  --color-space: var(--color-space);
+  --color-space-navy: var(--color-space-navy);
+  --color-space-blue: var(--color-space-blue);
+
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-light: var(--color-primary-light);
+
+  --color-cyan: var(--color-cyan);
+  --color-cyan-dark: var(--color-cyan-dark);
+  --color-cyan-light: var(--color-cyan-light);
+
+  --color-orange: var(--color-orange);
+  --color-orange-dark: var(--color-orange-dark);
+  --color-orange-light: var(--color-orange-light);
+
+  --color-gold: var(--color-gold);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-gold-light: var(--color-gold-light);
+
+  --color-purple: var(--color-purple);
+  --color-purple-dark: var(--color-purple-dark);
+  --color-purple-light: var(--color-purple-light);
+
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-disabled: var(--color-text-disabled);
+
+  --color-border: var(--color-border);
+  --color-border-light: var(--color-border-light);
+}
+
+
+/* =========================================================
+   🌍 GLOBAL STYLES
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-space);
+  color: var(--color-text-primary);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   🌌 GLOBAL SPACE BACKGROUND
+   ========================================================= */
+
+.space-background {
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(37, 99, 235, 0.15),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(124, 58, 237, 0.12),
+      transparent 35%
+    ),
+    var(--color-space);
+}
+
+
+/* =========================================================
+   ✨ GLASS CARD
+   ========================================================= */
+
+.glass-card {
+  background: var(--color-glass);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+
+/* =========================================================
+   🚀 GLOW UTILITIES
+   ========================================================= */
+
+.glow-primary {
+  box-shadow: var(--glow-primary);
+}
+
+.glow-cyan {
+  box-shadow: var(--glow-cyan);
+}
+
+.glow-orange {
+  box-shadow: var(--glow-orange);
+}
+
+.glow-purple {
+  box-shadow: var(--glow-purple);
+}
