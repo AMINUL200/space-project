@@ -130,7 +130,7 @@ const HomeTechnologySection = () => {
   const ActiveIcon = active.icon;
 
   return (
-    <section id="technology" className="relative overflow-hidden bg-space py-24 sm:py-32 lg:py-40">
+    <section id="technology" className="relative overflow-hidden bg-space py-8 sm:py-14 lg:py-14">
       {/* Background */}
       <div className="pointer-events-none absolute inset-0">
         <motion.div
@@ -322,30 +322,7 @@ const HomeTechnologySection = () => {
           </motion.div>
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.7 }}
-          className="mt-16 flex flex-col gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between"
-        >
-          <div>
-            <p className="font-inter text-sm text-white/40">Technology designed for tomorrow's missions.</p>
-            <p className="mt-1 font-space-grotesk text-xl text-white">Intelligence. Precision. Exploration.</p>
-          </div>
-          <motion.a
-            href="#future"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="flex w-fit items-center gap-3 rounded-full bg-white px-6 py-3 font-inter text-sm font-medium text-space-navy shadow-xl"
-          >
-            Explore the Future
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-space-navy text-white">
-              <ArrowUpRight size={12} />
-            </span>
-          </motion.a>
-        </motion.div>
+      
       </div>
     </section>
   );

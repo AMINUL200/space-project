@@ -44,6 +44,11 @@ const Navbar = () => {
       href: "#future",
     },
     {
+      id: "gallery",
+      label: "Launch Gallery",
+      href: "#gallery",
+    },
+    {
       id: "team",
       label: "Our Team",
       href: "#team",
@@ -72,7 +77,7 @@ const Navbar = () => {
             className="group flex items-center gap-2 transition-colors duration-300 hover:text-cyan"
           >
             <Phone size={12} className="text-cyan/60 transition-colors duration-300 group-hover:text-cyan" />
-            <span className="font-inter text-[11px] text-white/60 transition-colors duration-300 group-hover:text-white">
+            <span className="font-inter text-[11px] text-white transition-colors duration-300 group-hover:text-white">
               (410) 730-2656
             </span>
           </a>
@@ -85,7 +90,7 @@ const Navbar = () => {
             className="group flex items-center gap-2 transition-colors duration-300 hover:text-cyan"
           >
             <Mail size={12} className="text-cyan/60 transition-colors duration-300 group-hover:text-cyan" />
-            <span className="font-inter text-[11px] text-white/60 transition-colors duration-300 group-hover:text-white">
+            <span className="font-inter text-[11px] text-white transition-colors duration-300 group-hover:text-white">
               rabindrachander@gmail.com
             </span>
           </a>
@@ -123,7 +128,7 @@ const Navbar = () => {
           "
         >
           {/* =================================================
-              LOGO
+              LOGO - IMAGE
           ================================================== */}
           <a
             href="#home"
@@ -132,18 +137,16 @@ const Navbar = () => {
               relative
               z-10
               shrink-0
-              font-space-grotesk
-              text-base
-              font-medium
-              tracking-[-0.02em]
-              text-white/85
-              transition-colors
+              transition-opacity
               duration-300
-              hover:text-white
-              sm:text-lg
+              hover:opacity-80
             "
           >
-            ARCHIES WILLIAM
+            <img
+              src="/public/image/ARCHIES_WILLIAM_logo_white.png"
+              alt="Archies William Logo"
+              className="h-20 w-auto object-contain sm:h-14 lg:h-16"
+            />
           </a>
 
           {/* =================================================
@@ -160,7 +163,7 @@ const Navbar = () => {
                   font-inter
                   text-[12px]
                   font-medium
-                  text-white/50
+                  text-white
                   transition-all
                   duration-300
                   hover:text-white
@@ -191,57 +194,7 @@ const Navbar = () => {
           {/* =================================================
               RIGHT CTA
           ================================================== */}
-          <a
-            href="#contact"
-            onClick={handleLinkClick}
-            className="
-              group
-              hidden
-              shrink-0
-              items-center
-              gap-2
-              rounded-full
-              bg-white
-              px-4
-              py-2
-              font-inter
-              text-[11px]
-              font-medium
-              text-space-navy
-              shadow-lg
-              transition-all
-              duration-300
-              hover:scale-[1.04]
-              hover:bg-white/90
-              sm:px-5
-              sm:py-2.5
-              sm:text-xs
-              lg:flex
-            "
-          >
-            <span>Get Involved Now</span>
-
-            <span
-              className="
-                flex
-                h-5
-                w-5
-                items-center
-                justify-center
-                rounded-full
-                bg-space-navy
-                text-white
-                transition-transform
-                duration-300
-                group-hover:rotate-[-45deg]
-              "
-            >
-              <ArrowDownRight
-                size={11}
-                strokeWidth={2.5}
-              />
-            </span>
-          </a>
+         
 
           {/* =================================================
               MOBILE MENU BUTTON

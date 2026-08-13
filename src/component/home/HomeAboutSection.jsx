@@ -6,12 +6,14 @@ import {
   Orbit,
   Telescope,
   Satellite,
+  Globe,
+  Cpu,
+  Shield,
+  Sparkles,
 } from "lucide-react";
 
 /* =========================================================
    STARFIELD CANVAS
-   Ambient, twinkling background — replaces flat blurred
-   glow blobs with something that actually reads as "space".
 ========================================================= */
 const StarField = () => {
   const canvasRef = useRef(null);
@@ -95,11 +97,6 @@ const StarField = () => {
   );
 };
 
-/* =========================================================
-   MISSION ELAPSED TIME
-   Live HH:MM:SS ticker in the eyebrow — a small, real
-   signature detail rather than decoration.
-========================================================= */
 const useMissionClock = () => {
   const [elapsed, setElapsed] = useState(0);
 
@@ -126,39 +123,14 @@ const HomeAboutSection = () => {
     { value: "24/7", label: "MONITORING_STATUS" },
   ];
 
-  const modules = [
-    {
-      code: "MDL-01",
-      icon: Rocket,
-      title: "Mission Driven",
-      description:
-        "We transform ambitious ideas into meaningful missions designed to push the boundaries of exploration.",
-    },
-    {
-      code: "MDL-02",
-      icon: Orbit,
-      title: "Beyond Boundaries",
-      description:
-        "From Earth orbit to distant worlds, we build experiences around the future of human exploration.",
-    },
-    {
-      code: "MDL-03",
-      icon: Telescope,
-      title: "Future Focused",
-      description:
-        "Science, technology and imagination come together to create what comes next.",
-    },
-  ];
-
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-space py-24 sm:py-32 lg:py-40"
+      className="relative overflow-hidden bg-space py-10 sm:py-14 lg:py-14"
     >
       {/* Starfield */}
       <StarField />
 
-      {/* Fine grid, kept very subtle so the stars read as the texture */}
       <div
         className="
           pointer-events-none absolute inset-0 opacity-[0.02]
@@ -167,7 +139,6 @@ const HomeAboutSection = () => {
         "
       />
 
-      {/* Vignette instead of colored blur blobs */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(2,4,10,0.75)_100%)]" />
 
       <div className="relative z-10 mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 xl:px-16">
@@ -184,7 +155,7 @@ const HomeAboutSection = () => {
           <div className="flex items-center gap-3">
             <Satellite size={14} className="text-cyan" strokeWidth={1.75} />
             <span className="font-mono text-[11px] font-medium uppercase tracking-[0.28em] text-cyan">
-              Transmission Log — About CosmoVentures
+              Transmission Log — About ARCHIES WILLIAM
             </span>
           </div>
           <span className="font-mono text-[11px] tracking-[0.1em] text-text-disabled">
@@ -193,9 +164,9 @@ const HomeAboutSection = () => {
         </motion.div>
 
         {/* ===================================================
-            SECTION INTRO
+            MAIN CONTENT
         ==================================================== */}
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           {/* LEFT */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -203,16 +174,16 @@ const HomeAboutSection = () => {
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h2 className="max-w-[650px] font-space-grotesk text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-text-primary sm:text-5xl md:text-6xl lg:text-[64px]">
-              We don't just
-              <br />
-              <span className="text-white/45">look at the stars.</span>
-              <br />
-              We move
-              <br />
-              <span className="bg-gradient-to-r from-cyan via-primary to-purple bg-clip-text text-transparent">
-                toward them.
+            <div className="flex items-center gap-3 mb-4">
+              <Sparkles size={16} className="text-cyan" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan">
+                About Us
               </span>
+            </div>
+            <h2 className="font-space-grotesk text-5xl font-semibold leading-[1.05] tracking-[-0.045em] text-white sm:text-6xl lg:text-[64px]">
+              ARCHIES WILLIAM
+              <br />
+              <span className="text-white/45">PVT LTD.</span>
             </h2>
           </motion.div>
 
@@ -222,34 +193,66 @@ const HomeAboutSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col justify-end"
+            className="space-y-6"
           >
-            <p className="max-w-[650px] font-inter text-lg leading-8 text-text-muted sm:text-xl">
-              CosmoVentures is building a future where exploration is
-              accessible, intelligent and limitless. We bring together
-              science, technology and human curiosity to create the next
-              generation of space experiences.
+            <p className="font-inter text-lg leading-8 text-text-muted sm:text-xl">
+              ARCHIES WILLIAM PVT LTD. is an emerging technology and
+              scientific solutions company focused on space, Earth
+              observation, advanced sensing, scientific instrumentation
+              and mission-support technologies.
             </p>
 
-            <p className="mt-6 max-w-[600px] font-inter text-sm leading-7 text-text-disabled">
-              From ambitious missions to breakthrough technologies, our
-              journey is driven by one simple belief — the greatest
-              discoveries are still ahead of us.
+            <p className="font-inter text-base leading-7 text-text-muted">
+              Our vision is to bring together scientific knowledge,
+              engineering expertise and advanced technology to develop
+              solutions for some of the most challenging requirements in
+              the space and Earth sciences sectors.
             </p>
 
-            <motion.a
-              href="#missions"
-              whileHover={{ x: 6 }}
-              whileTap={{ scale: 0.97 }}
-              className="group mt-8 flex w-fit items-center gap-3 rounded-full font-inter text-sm font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan/60 focus-visible:ring-offset-2 focus-visible:ring-offset-space"
-            >
-              <span className="border-b border-white/30 pb-1 transition-colors duration-300 group-hover:border-cyan">
-                Discover Our Mission
-              </span>
-              <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 transition-all duration-300 group-hover:border-cyan group-hover:bg-cyan group-hover:text-space">
-                <ArrowUpRight size={15} />
-              </span>
-            </motion.a>
+            <p className="font-inter text-base leading-7 text-text-muted">
+              From satellite and ground-based systems to sensing, data
+              processing and scientific instrumentation, ARCHIES WILLIAM
+              aims to support organizations that require reliable,
+              intelligent and future-ready technology solutions.
+            </p>
+
+            <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Globe size={16} className="text-cyan" />
+                    <span className="font-inter text-[10px] uppercase tracking-[0.15em] text-cyan">
+                      Strategic Presence
+                    </span>
+                  </div>
+                  <p className="font-inter text-sm text-text-muted">
+                    With a strategic presence in the{" "}
+                    <span className="text-white/80">United States</span> and{" "}
+                    <span className="text-white/80">India</span>, the
+                    company is positioned to work across international
+                    technology, research and scientific ecosystems.
+                  </p>
+                </div>
+
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Shield size={16} className="text-cyan" />
+                    <span className="font-inter text-[10px] uppercase tracking-[0.15em] text-cyan">
+                      Our Approach
+                    </span>
+                  </div>
+                  <p className="font-inter text-sm text-text-muted">
+                    Our approach is built around{" "}
+                    <span className="text-white/80">innovation</span>,{" "}
+                    <span className="text-white/80">reliability</span>,{" "}
+                    <span className="text-white/80">scientific excellence</span>{" "}
+                    and long-term technological development.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            
           </motion.div>
         </div>
 
@@ -291,79 +294,18 @@ const HomeAboutSection = () => {
           ))}
         </div>
 
+       
         {/* ===================================================
-            MODULE READOUTS
+            BOTTOM DIVIDER
         ==================================================== */}
-        <div className="mt-20 lg:mt-28">
+        <div className="relative mt-20 h-px overflow-hidden bg-white/10 lg:mt-28">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.7 }}
-            className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"
-          >
-            <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-text-disabled">
-                Active Systems
-              </p>
-              <h3 className="mt-3 font-space-grotesk text-3xl font-medium tracking-[-0.03em] text-white sm:text-4xl">
-                Built for the next frontier.
-              </h3>
-            </div>
-            <p className="max-w-[380px] font-inter text-sm leading-6 text-text-muted">
-              Three principles guide every mission, every technology and
-              every experience we create.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            {modules.map((mod, index) => {
-              const Icon = mod.icon;
-              return (
-                <motion.div
-                  key={mod.code}
-                  initial={{ opacity: 0, y: 60 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.25 }}
-                  transition={{ duration: 0.7, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -6 }}
-                  className="group relative min-h-[300px] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-7 backdrop-blur-sm transition-colors duration-500 hover:bg-white/[0.04] sm:p-8"
-                >
-                  {/* Targeting reticle corners — appear on hover */}
-                  {[
-                    "left-3 top-3 border-l border-t",
-                    "right-3 top-3 border-r border-t",
-                    "left-3 bottom-3 border-l border-b",
-                    "right-3 bottom-3 border-r border-b",
-                  ].map((pos) => (
-                    <span
-                      key={pos}
-                      className={`pointer-events-none absolute h-3 w-3 border-cyan/0 transition-all duration-300 group-hover:border-cyan/70 ${pos}`}
-                    />
-                  ))}
-
-                  <div className="flex items-start justify-between">
-                    <span className="font-mono text-[11px] tracking-[0.2em] text-text-disabled">
-                      {mod.code}
-                    </span>
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/60 transition-all duration-300 group-hover:border-cyan/40 group-hover:bg-cyan/10 group-hover:text-cyan">
-                      <Icon size={19} strokeWidth={1.5} />
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-7 left-7 right-7 sm:bottom-8 sm:left-8 sm:right-8">
-                    <h4 className="font-space-grotesk text-2xl font-medium tracking-[-0.025em] text-white">
-                      {mod.title}
-                    </h4>
-                    <p className="mt-3 max-w-[340px] font-inter text-sm leading-6 text-text-muted">
-                      {mod.description}
-                    </p>
-                    <div className="mt-5 h-px w-0 bg-cyan transition-all duration-500 group-hover:w-16" />
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+            initial={{ x: "-100%" }}
+            whileInView={{ x: "100%" }}
+            viewport={{ once: true, amount: 0.8 }}
+            transition={{ duration: 1.4, ease: "easeInOut" }}
+            className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-purple/70 to-transparent"
+          />
         </div>
       </div>
     </section>

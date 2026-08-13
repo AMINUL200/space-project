@@ -8,6 +8,7 @@ import HomeBlogSection from '../../component/home/HomeBlogSection'
 import HomeContactUsSection from '../../component/home/HomeContactUsSection'
 import PageLoader from '../../component/common/PageLoader'
 import HomeTeamSection from '../../component/home/HomeTeamSection'
+import HomeGallerySection from '../../component/home/HomeGallerySection'
 
 const LandingPage = () => {
   const [loading, setLoading] = React.useState(true);
@@ -28,10 +29,11 @@ const LandingPage = () => {
       <HomeSpaceMissions />
       <HomeTechnologySection />
       <HomeFutureExplorationSection />
+      <HomeGallerySection />
       <HomeTeamSection />
       {/* <HomeBlogSection /> */}
       <HomeContactUsSection />
-      
+
     </div>
   )
 }

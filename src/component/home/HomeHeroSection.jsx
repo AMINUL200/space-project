@@ -28,7 +28,7 @@ const HomeHeroSection = () => {
   }, []);
 
   return (
-    <section className="relative isolate min-h-screen w-full overflow-hidden bg-space">
+    <section className="relative isolate min-h-screen w-full overflow-hidden bg-space" id="home">
 
       {/* =====================================================
           BACKGROUND
@@ -146,30 +146,7 @@ const HomeHeroSection = () => {
               }}
             >
 
-              {/* Learn More */}
-              <a
-                href="#about"
-                className="group flex items-center justify-center whitespace-nowrap rounded-full border border-white/60 bg-black/10 px-6 py-2.5 font-inter text-sm font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-white hover:bg-white/10 sm:px-7 sm:py-3"
-              >
-                Learn More Here
-              </a>
-
-              {/* Start Journey */}
-              <a
-                href="#missions"
-                className="group flex items-center gap-3 whitespace-nowrap rounded-full bg-white px-6 py-2.5 font-inter text-sm font-medium text-space-navy shadow-xl transition-all duration-300 hover:scale-[1.03] hover:bg-white/90 sm:px-7 sm:py-3"
-              >
-                <span>
-                  Start Your Journey
-                </span>
-
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-space-navy text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5">
-                  <ArrowDownRight
-                    size={12}
-                    strokeWidth={2.5}
-                  />
-                </span>
-              </a>
+              
 
             </div>
 

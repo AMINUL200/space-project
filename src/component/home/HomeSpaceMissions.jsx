@@ -53,7 +53,7 @@ const HomeSpaceMissions = () => {
   ];
 
   return (
-    <section id="missions" className="relative overflow-hidden bg-space py-24 sm:py-32 lg:py-40">
+    <section id="missions" className="relative overflow-hidden bg-space py-8 sm:py-14 lg:py-14">
       {/* Background (unchanged) */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-[25%] h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-primary/10 blur-[160px]" />
@@ -191,16 +191,7 @@ const HomeSpaceMissions = () => {
                 </div>
               </div>
 
-              <motion.a
-                href="#mission-details"
-                whileHover={{ x: 5 }}
-                className="group/link mt-8 flex items-center justify-between border-t border-white/10 pt-5"
-              >
-                <span className="font-inter text-sm font-medium text-white">Explore Mission</span>
-                <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/70 transition-all duration-300 group-hover/link:border-cyan group-hover/link:bg-cyan group-hover/link:text-space">
-                  <ArrowUpRight size={16} />
-                </span>
-              </motion.a>
+            
             </div>
           </div>
         </motion.div>
@@ -269,30 +260,7 @@ const HomeSpaceMissions = () => {
           })}
         </div>
 
-        {/* Bottom CTA (unchanged) */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.7 }}
-          className="mt-16 flex flex-col items-start justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center"
-        >
-          <div>
-            <p className="font-inter text-sm text-white/50">More missions are already on the horizon.</p>
-            <p className="mt-1 font-space-grotesk text-xl text-white">The journey has only just begun.</p>
-          </div>
-          <motion.a
-            href="#future"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="flex items-center gap-3 rounded-full bg-white px-6 py-3 font-inter text-sm font-medium text-space-navy shadow-xl"
-          >
-            View Future Missions
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-space-navy text-white">
-              <ArrowUpRight size={12} />
-            </span>
-          </motion.a>
-        </motion.div>
+     
       </div>
     </section>
   );

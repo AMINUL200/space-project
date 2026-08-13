@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "motion/react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import {
   ArrowUpRight,
   ArrowDownRight,
@@ -8,13 +8,18 @@ import {
   Telescope,
   Sparkles,
   CircleDot,
+  Satellite,
+  Cpu,
+  Radar,
+  Eye,
+  Camera,
+  Microscope,
+  Database,
+  Lightbulb,
 } from "lucide-react";
 
 /* =========================================================
    ORBIT PATH
-   A single ring with one planet dot. All rings rotate the
-   same direction — outer rings run slower, mirroring real
-   orbital mechanics (farther planets orbit more slowly).
 ========================================================= */
 const OrbitPath = ({ size, duration, dotSize, color, startAngle = 0, ringOpacity = 0.14 }) => {
   return (
@@ -34,7 +39,6 @@ const OrbitPath = ({ size, duration, dotSize, color, startAngle = 0, ringOpacity
         className="relative h-full w-full rounded-full"
         style={{ transform: `rotate(${startAngle}deg)` }}
       >
-        {/* soft trail glow */}
         <div
           className="absolute rounded-full blur-[5px]"
           style={{
@@ -46,7 +50,6 @@ const OrbitPath = ({ size, duration, dotSize, color, startAngle = 0, ringOpacity
             background: `radial-gradient(circle, ${color}80 0%, transparent 70%)`,
           }}
         />
-        {/* planet */}
         <span
           className="absolute rounded-full"
           style={{
@@ -65,32 +68,119 @@ const OrbitPath = ({ size, duration, dotSize, color, startAngle = 0, ringOpacity
 };
 
 const HomeFutureExplorationSection = () => {
-  const milestones = [
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const cards = [
     {
-      year: "2027",
-      title: "Beyond Lunar Orbit",
+      id: "01",
+      title: "Ground Control Systems",
+      icon: Satellite,
       description:
-        "Expanding exploration beyond the Moon and developing the systems required for deeper missions.",
-      icon: Moon,
+        "Our ground-control solutions support satellite communication, monitoring, data management and mission operations.",
+      image: "/image/gcs.jpeg",
     },
     {
-      year: "2030",
-      title: "Mars Preparation",
-      description:
-        "Advancing navigation, communication and autonomous technologies for the next generation of Mars missions.",
+      id: "02",
+      title: "Constellation Management",
       icon: Globe2,
+      description:
+        "We support integrated systems for managing satellite constellations, improving operational efficiency and access to mission data.",
+      image: "/image/cm.jpeg",
     },
     {
-      year: "2035+",
-      title: "Deep Space",
+      id: "03",
+      title: "Space Domain Awareness",
+      icon: Radar,
       description:
-        "Opening a new chapter of exploration beyond Mars and toward the unexplored frontier.",
-      icon: Telescope,
+        "Our data-driven technologies help organizations monitor and understand objects and activities within the space environment.",
+      image: "/image/sda.jpeg",
+    },
+    {
+      id: "04",
+      title: "Earth Observation & Science",
+      icon: Eye,
+      description:
+        "We support advanced sensing and observation technologies for environmental monitoring, scientific research and Earth-system analysis.",
+      image: "/image/eos.jpeg",
+    },
+    {
+      id: "05",
+      title: "Advanced Sensing & Imaging",
+      icon: Camera,
+      description:
+        "Our capabilities include optical, infrared, radiation detection and imaging technologies for space and scientific applications.",
+      image: "/image/asi.jpeg",
+    },
+    {
+      id: "06",
+      title: "Scientific Instrumentation",
+      icon: Microscope,
+      description:
+        "We focus on advanced instruments and detection technologies designed for demanding research and operational environments.",
+      image: "/image/si.jpeg",
+    },
+    {
+      id: "07",
+      title: "Mission Data Processing",
+      icon: Database,
+      description:
+        "Our solutions help collect, process and manage complex data from satellites, sensors and scientific missions.",
+      image: "/image/mdp.jpeg",
+    },
+    {
+      id: "08",
+      title: "Research & Innovation",
+      icon: Lightbulb,
+      description:
+        "We combine scientific research and engineering expertise to explore innovative solutions for future space and technology applications.",
+      image: "/image/ri.jpeg",
     },
   ];
 
+  const itemsPerPage = 3;
+  const totalPages = Math.ceil(cards.length / itemsPerPage);
+
+  const nextSlide = () => {
+    setDirection(1);
+    setCurrentIndex((prev) => (prev + 1) % totalPages);
+  };
+
+  const prevSlide = () => {
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev - 1 + totalPages) % totalPages);
+  };
+
+  const getVisibleCards = () => {
+    const start = currentIndex * itemsPerPage;
+    return cards.slice(start, start + itemsPerPage);
+  };
+
+  const slideVariants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+    exit: (direction) => ({
+      x: direction > 0 ? -300 : 300,
+      opacity: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    }),
+  };
+
   return (
-    <section id="future" className="relative overflow-hidden bg-space py-24 sm:py-32 lg:py-40">
+    <section id="future" className="relative overflow-hidden bg-space py-8 sm:py-14 lg:py-14">
       {/* Atmosphere */}
       <div className="pointer-events-none absolute inset-0">
         <motion.div
@@ -154,8 +244,6 @@ const HomeFutureExplorationSection = () => {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="relative mt-16 min-h-[650px] overflow-hidden rounded-[30px] border border-white/10 bg-[#050817] lg:mt-20"
         >
-          {/* SOLAR SYSTEM — same-direction orbits, varied speed & color,
-              outer rings slower (matches real orbital mechanics) */}
           <OrbitPath size={220} duration={16} dotSize={5} color="#9CA3AF" startAngle={40} ringOpacity={0.18} />
           <OrbitPath size={310} duration={26} dotSize={6} color="#FDBA74" startAngle={140} ringOpacity={0.16} />
           <OrbitPath size={400} duration={38} dotSize={7} color="#22D3EE" startAngle={230} ringOpacity={0.14} />
@@ -174,13 +262,11 @@ const HomeFutureExplorationSection = () => {
             <div className="absolute left-[20%] top-[16%] h-[30%] w-[38%] rounded-full bg-white/15 blur-2xl" />
           </motion.div>
 
-          {/* Center label */}
           <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center" style={{ marginTop: 110 }}>
             <p className="font-inter text-[9px] uppercase tracking-[0.35em] text-cyan">NEXT FRONTIER</p>
             <p className="mt-2 font-space-grotesk text-2xl font-medium text-white sm:text-3xl">Sun</p>
           </div>
 
-          {/* Top left status */}
           <div className="absolute left-6 top-6 z-20 sm:left-8 sm:top-8">
             <div className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan" />
@@ -191,13 +277,11 @@ const HomeFutureExplorationSection = () => {
             <p className="mt-2 font-space-grotesk text-sm text-white/70">FUTURE-01</p>
           </div>
 
-          {/* Top right */}
           <div className="absolute right-6 top-6 z-20 text-right sm:right-8 sm:top-8">
             <p className="font-inter text-[9px] uppercase tracking-[0.2em] text-white/30">Current Status</p>
             <p className="mt-1 font-space-grotesk text-sm text-cyan">EXPLORING</p>
           </div>
 
-          {/* Bottom left text */}
           <div className="absolute bottom-6 left-6 z-20 max-w-[380px] sm:bottom-8 sm:left-8">
             <p className="font-inter text-[10px] uppercase tracking-[0.25em] text-cyan">Where we're going</p>
             <h3 className="mt-3 font-space-grotesk text-3xl font-medium tracking-[-0.03em] text-white sm:text-4xl">
@@ -211,21 +295,10 @@ const HomeFutureExplorationSection = () => {
             </p>
           </div>
 
-          {/* Bottom right CTA */}
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            className="absolute bottom-6 right-6 z-20 flex items-center gap-3 rounded-full bg-white px-5 py-3 font-inter text-xs font-medium text-space-navy shadow-2xl sm:bottom-8 sm:right-8 sm:px-6 sm:py-3.5 sm:text-sm"
-          >
-            Join the Journey
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-space-navy text-white">
-              <ArrowUpRight size={12} />
-            </span>
-          </motion.a>
+          
         </motion.div>
 
-        {/* FUTURE TIMELINE */}
+        {/* CAPABILITIES SLIDER */}
         <div className="mt-20 lg:mt-28">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -233,88 +306,134 @@ const HomeFutureExplorationSection = () => {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.7 }}
           >
-            <p className="font-inter text-[10px] uppercase tracking-[0.25em] text-white/30">Our trajectory</p>
+            <p className="font-inter text-[10px] uppercase tracking-[0.25em] text-white/30">Our Capabilities</p>
             <h3 className="mt-3 font-space-grotesk text-3xl font-medium tracking-[-0.035em] text-white sm:text-4xl">
-              A roadmap beyond the horizon.
+              Technologies that shape the future.
             </h3>
           </motion.div>
 
-          <div className="relative mt-12">
-            <div className="absolute left-[18px] top-0 bottom-0 w-px bg-gradient-to-b from-cyan/50 via-white/10 to-transparent md:left-0 md:right-0 md:top-[22px] md:h-px md:w-auto" />
+          <motion.div
+            initial={{ opacity: 0, y: 65 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-12"
+          >
+            <div className="relative overflow-hidden">
+              <AnimatePresence mode="wait" custom={direction}>
+                <motion.div
+                  key={currentIndex}
+                  custom={direction}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+                >
+                  {getVisibleCards().map((card, index) => {
+                    const Icon = card.icon;
+                    return (
+                      <motion.div
+                        key={card.id}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                        className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] transition-all duration-500 hover:border-cyan/30 hover:bg-white/[0.05] hover:shadow-lg hover:shadow-cyan/5"
+                      >
+                        {/* Image */}
+                        <div className="relative h-48 overflow-hidden">
+                          <img
+                            src={card.image}
+                            alt={card.title}
+                            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-space via-space/40 to-transparent" />
+                          
+                          {/* ID Badge */}
+                          <div className="absolute left-4 top-4">
+                            <span className="rounded-full border border-white/15 bg-black/30 px-3 py-1 font-inter text-[8px] uppercase tracking-[0.2em] text-white/80 backdrop-blur-sm">
+                              {card.id}
+                            </span>
+                          </div>
 
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
-              {milestones.map((milestone, index) => {
-                const Icon = milestone.icon;
-                return (
-                  <motion.div
-                    key={milestone.year}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.25 }}
-                    transition={{ duration: 0.7, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
-                    className="relative pl-12 md:pl-0"
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.2 }}
-                      className="absolute left-[10px] top-[10px] flex h-4 w-4 items-center justify-center rounded-full border border-cyan/40 bg-space md:static md:mb-7 md:h-11 md:w-11"
-                    >
-                      <span className="h-1.5 w-1.5 rounded-full bg-cyan shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
-                      <Icon size={17} className="absolute hidden text-cyan md:block" strokeWidth={1.5} />
-                    </motion.div>
+                          {/* Icon */}
+                          <div className="absolute bottom-4 right-4 flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black/30 backdrop-blur-sm text-cyan transition-all duration-300 group-hover:border-cyan/40 group-hover:bg-cyan/10">
+                            <Icon size={20} strokeWidth={1.5} />
+                          </div>
+                        </div>
 
-                    <div className="border-b border-white/10 pb-8 md:border-none md:pb-0">
-                      <div className="flex items-center justify-between md:block">
-                        <span className="font-space-grotesk text-3xl font-medium text-white">{milestone.year}</span>
-                        <ArrowDownRight size={18} className="text-white/20 md:hidden" />
-                      </div>
-                      <h4 className="mt-3 font-space-grotesk text-xl font-medium text-white md:text-2xl">
-                        {milestone.title}
-                      </h4>
-                      <p className="mt-3 max-w-[360px] font-inter text-sm leading-6 text-text-muted">
-                        {milestone.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                );
-              })}
+                        {/* Content */}
+                        <div className="p-6">
+                          <h4 className="font-space-grotesk text-lg font-semibold text-white">
+                            {card.title}
+                          </h4>
+                          <p className="mt-2 font-inter text-sm leading-6 text-text-muted">
+                            {card.description}
+                          </p>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </motion.div>
+              </AnimatePresence>
             </div>
-          </div>
-        </div>
 
-        {/* FINAL STATEMENT */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.8 }}
-          className="mt-24 border-t border-white/10 pt-10 lg:mt-32 lg:pt-14"
-        >
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <div className="flex items-start gap-4">
-              <Sparkles size={20} className="mt-2 shrink-0 text-cyan" />
-              <div>
-                <p className="font-inter text-sm text-white/40">The destination is unknown.</p>
-                <h3 className="mt-2 max-w-[700px] font-space-grotesk text-3xl font-medium tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl">
-                  That's exactly why
-                  <span className="text-white/40"> we're going.</span>
-                </h3>
+            {/* Slider Controls */}
+            <div className="mt-8 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                {Array.from({ length: totalPages }).map((_, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => {
+                      setDirection(index > currentIndex ? 1 : -1);
+                      setCurrentIndex(index);
+                    }}
+                    aria-label={`Go to slide ${index + 1}`}
+                    className="group h-8 py-3"
+                  >
+                    <span
+                      className={`
+                        block
+                        h-[2px]
+                        rounded-full
+                        transition-all
+                        duration-500
+                        ${
+                          currentIndex === index
+                            ? "w-12 bg-cyan"
+                            : "w-5 bg-white/15 group-hover:bg-white/40"
+                        }
+                      `}
+                    />
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={prevSlide}
+                  aria-label="Previous"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.02] text-white/50 transition-all duration-300 hover:border-cyan/40 hover:bg-cyan/10 hover:text-cyan"
+                >
+                  <ArrowDownRight size={17} className="rotate-90" />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={nextSlide}
+                  aria-label="Next"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.02] text-white/50 transition-all duration-300 hover:border-cyan/40 hover:bg-cyan/10 hover:text-cyan"
+                >
+                  <ArrowDownRight size={17} className="-rotate-90" />
+                </button>
               </div>
             </div>
+          </motion.div>
+        </div>
 
-            <motion.a
-              href="#contact"
-              whileHover={{ x: 5 }}
-              className="group flex w-fit items-center gap-3 font-inter text-sm font-medium text-white"
-            >
-              <span className="border-b border-white/20 pb-1 transition-colors duration-300 group-hover:border-cyan">
-                Become part of the future
-              </span>
-              <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 transition-all duration-300 group-hover:border-cyan group-hover:bg-cyan group-hover:text-space">
-                <ArrowUpRight size={15} />
-              </span>
-            </motion.a>
-          </div>
-        </motion.div>
+       
       </div>
     </section>
   );

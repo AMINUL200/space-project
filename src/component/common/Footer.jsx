@@ -127,38 +127,9 @@ const Footer = () => {
               className="group inline-flex items-center gap-3"
             >
 
-              {/* Logo */}
-              <span
-                className="
-                  flex
-                  h-11
-                  w-11
-                  items-center
-                  justify-center
-                  rounded-full
-                  border
-                  border-cyan/30
-                  bg-cyan/5
-                  text-cyan
-                  transition-all
-                  duration-300
-                  group-hover:border-cyan
-                  group-hover:bg-cyan/10
-                "
-              >
-                <Rocket
-                  size={19}
-                  strokeWidth={1.5}
-                />
-              </span>
+              
 
-              <span className="font-space-grotesk text-xl font-semibold tracking-[-0.03em]">
-               ARCHIES {" "}
-                <span className="text-cyan">
-                  WILLIAM
-                </span>
-              </span>
-
+              <img src="/public/image/ARCHIES_WILLIAM_logo_white.png" alt="" className="h-20 w-full object-center" />
             </a>
 
             <p className="mt-7 max-w-[520px] font-space-grotesk text-3xl font-medium leading-[1.1] tracking-[-0.035em] text-white sm:text-4xl">

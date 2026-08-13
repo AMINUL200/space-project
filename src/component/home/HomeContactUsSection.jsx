@@ -1,35 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "motion/react";
 import {
   ArrowUpRight,
   Mail,
   MapPin,
   Phone,
-  Rocket,
-  Send,
-  CheckCircle2,
   Sparkles,
   Radio,
   Building2,
   Users,
   Globe,
+  Briefcase,
+  User,
+  Building,
+  Link,
 } from "lucide-react";
 
 const HomeContactUsSection = () => {
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-    }, 5000);
-  };
-
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-space py-24 sm:py-32 lg:py-40"
+      className="relative overflow-hidden bg-space py-8 sm:py-14 lg:py-14"
     >
       {/* =====================================================
           BACKGROUND ATMOSPHERE
@@ -109,9 +100,9 @@ const HomeContactUsSection = () => {
         {/* ===================================================
             CONTACT GRID
         ==================================================== */}
-        <div className="mt-14 grid grid-cols-1 gap-5 lg:mt-20 lg:grid-cols-[0.7fr_1.3fr]">
+        <div className="mt-14 grid grid-cols-1 gap-6 lg:mt-20 lg:grid-cols-2">
           {/* =================================================
-              LEFT — CONTACT INFORMATION
+              LEFT — MAIN OFFICE
           ================================================== */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -140,36 +131,28 @@ const HomeContactUsSection = () => {
               </span>
             </div>
 
-            <h3 className="relative z-10 mt-10 max-w-[400px] font-space-grotesk text-2xl font-medium leading-tight tracking-[-0.035em] text-white sm:text-3xl">
-              Get in touch
-              <br />
-              <span className="text-white/40">with our team</span>
+            <h3 className="relative z-10 mt-10 font-space-grotesk text-3xl font-medium leading-tight tracking-[-0.035em] text-white sm:text-4xl">
+              Main Office
             </h3>
 
-            <p className="relative z-10 mt-6 max-w-[380px] font-inter text-sm leading-6 text-text-muted">
-              Have a project in mind? Our team of experts is ready to hear
-              from you and explore how we can collaborate.
-            </p>
-
-            {/* Contact details */}
-            <div className="relative z-10 mt-10 space-y-5 border-t border-white/10 pt-7">
-              {/* Email */}
-              <a
-                href="mailto:info@archieswilliam.com"
-                className="group flex items-center gap-4"
-              >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50 transition-all duration-300 group-hover:border-cyan/30 group-hover:bg-cyan/10 group-hover:text-cyan">
-                  <Mail size={16} />
+            {/* Main Office Details */}
+            <div className="relative z-10 mt-8 space-y-5">
+              {/* Address */}
+              <div className="flex items-start gap-4">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50">
+                  <MapPin size={16} />
                 </span>
                 <div>
                   <p className="font-inter text-[9px] uppercase tracking-[0.15em] text-white/25">
-                    Email
+                    Address
                   </p>
-                  <p className="mt-1 font-inter text-sm text-white/70 transition-colors group-hover:text-white">
-                    rabinderchander@gmail.com
+                  <p className="mt-1 font-inter text-sm text-white/70 leading-tight">
+                    425 3rd Street SW
+                    <br />
+                    Washington DC 20024
                   </p>
                 </div>
-              </a>
+              </div>
 
               {/* Phone */}
               <a
@@ -189,76 +172,43 @@ const HomeContactUsSection = () => {
                 </div>
               </a>
 
-              {/* Location - Main Office */}
-              <div className="flex items-start gap-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50">
-                  <Building2 size={16} />
+              {/* Email */}
+              <a
+                href="mailto:info@boeing.net.in"
+                className="group flex items-center gap-4"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50 transition-all duration-300 group-hover:border-cyan/30 group-hover:bg-cyan/10 group-hover:text-cyan">
+                  <Mail size={16} />
                 </span>
                 <div>
                   <p className="font-inter text-[9px] uppercase tracking-[0.15em] text-white/25">
-                    Main Office
+                    Email
                   </p>
-                  <p className="mt-1 font-inter text-sm text-white/70 leading-tight">
-                    425 3rd Street SW
-                    <br />
-                    Washington DC 20024
+                  <p className="mt-1 font-inter text-sm text-white/70 transition-colors group-hover:text-white">
+                    info@boeing.net.in
                   </p>
                 </div>
-              </div>
+              </a>
 
-              {/* Location - India Office */}
-              <div className="flex items-start gap-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50">
-                  <Globe size={16} />
+              {/* Website */}
+              <a
+                href="https://boeing.net.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50 transition-all duration-300 group-hover:border-cyan/30 group-hover:bg-cyan/10 group-hover:text-cyan">
+                  <Link size={16} />
                 </span>
                 <div>
                   <p className="font-inter text-[9px] uppercase tracking-[0.15em] text-white/25">
-                    India Office
+                    Website
                   </p>
-                  <p className="mt-1 font-inter text-sm text-white/70">
-                    New Delhi
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Key Personnel */}
-            <div className="relative z-10 mt-8 border-t border-white/10 pt-6">
-              <div className="flex items-center gap-2 mb-4">
-                <Users size={14} className="text-cyan/60" />
-                <span className="font-inter text-[9px] uppercase tracking-[0.15em] text-white/25">
-                  Key Personnel
-                </span>
-              </div>
-
-              <div className="space-y-3">
-                <div>
-                  <p className="font-inter text-xs font-medium text-white">
-                    Mr. Nicholas Horsburgh
-                  </p>
-                  <p className="font-inter text-[10px] text-white/40">
-                    President & CEO
+                  <p className="mt-1 font-inter text-sm text-white/70 transition-colors group-hover:text-cyan">
+                    boeing.net.in
                   </p>
                 </div>
-
-                <div>
-                  <p className="font-inter text-xs font-medium text-white">
-                    Mr. R.N. CHANDRA
-                  </p>
-                  <p className="font-inter text-[10px] text-white/40">
-                    India Head
-                  </p>
-                </div>
-
-                <div>
-                  <p className="font-inter text-[10px] text-cyan/60">
-                    Metallurgist & Scientist
-                  </p>
-                  <p className="font-inter text-[10px] text-white/30">
-                    BARC · ISRO · DRDO
-                  </p>
-                </div>
-              </div>
+              </a>
             </div>
 
             {/* Bottom system data */}
@@ -276,179 +226,98 @@ const HomeContactUsSection = () => {
           </motion.div>
 
           {/* =================================================
-              RIGHT — CONTACT FORM
+              RIGHT — BRANCH OFFICES & PERSONNEL
           ================================================== */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-[28px] border border-white/10 bg-white/[0.025] p-7 sm:p-9 lg:p-10"
+            className="space-y-6"
           >
-            {!submitted ? (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Form header */}
-                <div className="mb-8 flex items-start justify-between">
-                  <div>
-                    <p className="font-inter text-[10px] uppercase tracking-[0.22em] text-cyan">
-                      Send Inquiry
-                    </p>
-                    <h3 className="mt-2 font-space-grotesk text-2xl font-medium text-white sm:text-3xl">
-                      Tell us about your project.
-                    </h3>
-                  </div>
-                  <div className="hidden h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/30 sm:flex">
-                    <Rocket size={17} strokeWidth={1.5} />
-                  </div>
-                </div>
-
-                {/* Name + Email */}
-                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                  <div>
-                    <label htmlFor="name" className="mb-2 block font-inter text-[10px] uppercase tracking-[0.16em] text-white/35">
-                      Full Name
-                    </label>
-                    <input
-                      id="name"
-                      type="text"
-                      name="name"
-                      required
-                      placeholder="Enter your name"
-                      className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3.5 font-inter text-sm text-white outline-none placeholder:text-white/20 transition-all duration-300 focus:border-cyan/40 focus:bg-white/[0.05] focus:ring-1 focus:ring-cyan/20"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="mb-2 block font-inter text-[10px] uppercase tracking-[0.16em] text-white/35">
-                      Email Address
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      name="email"
-                      required
-                      placeholder="you@example.com"
-                      className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3.5 font-inter text-sm text-white outline-none placeholder:text-white/20 transition-all duration-300 focus:border-cyan/40 focus:bg-white/[0.05] focus:ring-1 focus:ring-cyan/20"
-                    />
-                  </div>
-                </div>
-
-                {/* Phone */}
-                <div>
-                  <label htmlFor="phone" className="mb-2 block font-inter text-[10px] uppercase tracking-[0.16em] text-white/35">
-                    Phone Number
-                  </label>
-                  <input
-                    id="phone"
-                    type="tel"
-                    name="phone"
-                    placeholder="+1 (000) 000-0000"
-                    className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3.5 font-inter text-sm text-white outline-none placeholder:text-white/20 transition-all duration-300 focus:border-cyan/40 focus:bg-white/[0.05] focus:ring-1 focus:ring-cyan/20"
-                  />
-                </div>
-
-                {/* Subject */}
-                <div>
-                  <label htmlFor="subject" className="mb-2 block font-inter text-[10px] uppercase tracking-[0.16em] text-white/35">
-                    Subject
-                  </label>
-                  <select
-                    id="subject"
-                    name="subject"
-                    className="w-full appearance-none rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3.5 font-inter text-sm text-white outline-none transition-all duration-300 focus:border-cyan/40 focus:bg-white/[0.05] focus:ring-1 focus:ring-cyan/20"
-                    defaultValue=""
-                    required
-                  >
-                    <option value="" disabled className="bg-space">
-                      Select a subject
-                    </option>
-                    <option value="metallurgy" className="bg-space">
-                      Metallurgy & Materials
-                    </option>
-                    <option value="space-technology" className="bg-space">
-                      Space Technology
-                    </option>
-                    <option value="research" className="bg-space">
-                      Research & Development
-                    </option>
-                    <option value="collaboration" className="bg-space">
-                      Collaboration
-                    </option>
-                    <option value="general" className="bg-space">
-                      General Inquiry
-                    </option>
-                  </select>
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label htmlFor="message" className="mb-2 block font-inter text-[10px] uppercase tracking-[0.16em] text-white/35">
-                    Your Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={6}
-                    required
-                    placeholder="Tell us about your project or inquiry..."
-                    className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3.5 font-inter text-sm leading-6 text-white outline-none placeholder:text-white/20 transition-all duration-300 focus:border-cyan/40 focus:bg-white/[0.05] focus:ring-1 focus:ring-cyan/20"
-                  />
-                </div>
-
-                {/* Submit */}
-                <div className="flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                  <p className="max-w-[300px] font-inter text-[10px] leading-5 text-white/25">
-                    Your inquiry will be securely received by our team.
-                  </p>
-                  <motion.button
-                    type="submit"
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
-                    className="group flex shrink-0 items-center justify-center gap-3 rounded-full bg-white px-6 py-3 font-inter text-sm font-medium text-space-navy shadow-xl"
-                  >
-                    Send Message
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-space-navy text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                      <Send size={11} strokeWidth={2.5} />
-                    </span>
-                  </motion.button>
-                </div>
-              </form>
-            ) : (
-              /* Success State */
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="flex min-h-[550px] flex-col items-center justify-center text-center"
-              >
-                <motion.div
-                  initial={{ scale: 0, rotate: -20 }}
-                  animate={{ scale: 1, rotate: 0 }}
-                  transition={{ type: "spring", stiffness: 180, damping: 12 }}
-                  className="flex h-20 w-20 items-center justify-center rounded-full border border-cyan/30 bg-cyan/10 text-cyan"
-                >
-                  <CheckCircle2 size={38} strokeWidth={1.5} />
-                </motion.div>
-
-                <p className="mt-8 font-inter text-[10px] uppercase tracking-[0.25em] text-cyan">
-                  Message Sent
-                </p>
-
-                <h3 className="mt-3 font-space-grotesk text-3xl font-medium text-white sm:text-4xl">
-                  Thank you for reaching out.
+            {/* Branch Offices */}
+            <div className="rounded-[28px] border border-white/10 bg-white/[0.025] p-7 sm:p-9 lg:p-10">
+              <div className="flex items-center gap-3 mb-6">
+                <Building2 size={18} className="text-cyan" />
+                <h3 className="font-space-grotesk text-2xl font-medium text-white">
+                  Branch Offices & Project Sites
                 </h3>
+              </div>
 
-                <p className="mt-4 max-w-[450px] font-inter text-sm leading-6 text-text-muted">
-                  Our team will review your inquiry and get back to you as
-                  soon as possible.
-                </p>
-
-                <div className="mt-8 flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan" />
-                  <span className="font-inter text-[9px] uppercase tracking-[0.2em] text-white/30">
-                    Connection Established
+              <div className="space-y-6">
+                {/* US Branch */}
+                <div className="flex items-start gap-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50">
+                    <Globe size={16} />
                   </span>
+                  <div>
+                    <p className="font-inter text-[9px] uppercase tracking-[0.15em] text-cyan">
+                      U.S Branch Office
+                    </p>
+                    <p className="mt-1 font-inter text-sm text-white/70 leading-tight">
+                      Arlington, Virginia
+                    </p>
+                  </div>
                 </div>
-              </motion.div>
-            )}
+
+                {/* India Branch */}
+                <div className="flex items-start gap-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50">
+                    <Building size={16} />
+                  </span>
+                  <div>
+                    <p className="font-inter text-[9px] uppercase tracking-[0.15em] text-cyan">
+                      India Branch Office
+                    </p>
+                    <p className="mt-1 font-inter text-sm text-white/70 leading-tight">
+                      Kolkata, West Bengal
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Key Personnel */}
+            <div className="rounded-[28px] border border-white/10 bg-white/[0.025] p-7 sm:p-9 lg:p-10">
+              <div className="flex items-center gap-3 mb-6">
+                <Users size={18} className="text-cyan" />
+                <h3 className="font-space-grotesk text-2xl font-medium text-white">
+                  Key Personnel
+                </h3>
+              </div>
+
+              <div className="space-y-6">
+                {/* Robert Kelly Ortberg */}
+                <div className="flex items-start gap-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50">
+                    <User size={16} />
+                  </span>
+                  <div>
+                    <p className="font-inter text-sm font-medium text-white">
+                      Mr. Robert Kelly Ortberg
+                    </p>
+                    <p className="font-inter text-xs text-cyan/70">
+                      President & CEO · Boeing
+                    </p>
+                  </div>
+                </div>
+
+                {/* Pankaj Mishra */}
+                <div className="flex items-start gap-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50">
+                    <Briefcase size={16} />
+                  </span>
+                  <div>
+                    <p className="font-inter text-sm font-medium text-white">
+                      Mr. Pankaj Mishra
+                    </p>
+                    <p className="font-inter text-xs text-white/50">
+                      Key Personnel
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
 
