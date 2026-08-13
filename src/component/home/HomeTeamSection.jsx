@@ -49,7 +49,7 @@ const HomeTeamSection = () => {
       email: "arjun.mehta@archieswilliam.com",
       phone: "+91 7550755553",
       image:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1200&q=85",
     },
     {
       id: "04",
@@ -62,7 +62,7 @@ const HomeTeamSection = () => {
       email: "ananya.sharma@archieswilliam.com",
       phone: "+1 (410) 730-2656",
       image:
-        "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=85",
     },
     {
       id: "05",
