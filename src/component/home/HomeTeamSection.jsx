@@ -15,6 +15,18 @@ const HomeTeamSection = () => {
   const team = [
     {
       id: "01",
+      name: "R. N. Chandra",
+      role: "India Head",
+      shortRole: "INDIA HEAD",
+      description:
+        "Leading operations and strategic initiatives in India. With extensive experience in technology management and business development, R.N. Chandra drives the company's growth in the Indian market.",
+      location: "New Delhi, India",
+      email: "rn.chandra@archieswilliam.com",
+      phone: "+91 9873999392",
+      image: "/image/n_charan.jpeg",
+    },
+    {
+      id: "02",
       name: "Nicholas Horsburgh",
       role: "President & CEO",
       shortRole: "PRESIDENT & CEO",
@@ -25,19 +37,6 @@ const HomeTeamSection = () => {
       phone: "+1 (410) 730-2656",
       image:
         "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1200&q=85",
-    },
-    {
-      id: "02",
-      name: "R. N. Chandra",
-      role: "India Head",
-      shortRole: "INDIA HEAD",
-      description:
-        "Leading operations and strategic initiatives in India. With extensive experience in technology management and business development, R.N. Chandra drives the company's growth in the Indian market.",
-      location: "New Delhi, India",
-      email: "rn.chandra@archieswilliam.com",
-      phone: "+91 9873999392",
-      image:
-        "/image/n_charan.jpeg",
     },
     {
       id: "03",
@@ -123,7 +122,9 @@ const HomeTeamSection = () => {
   }, [recalc]);
 
   useEffect(() => {
-    setCurrentIndex((i) => Math.min(i, Math.max(0, team.length - visibleCount)));
+    setCurrentIndex((i) =>
+      Math.min(i, Math.max(0, team.length - visibleCount)),
+    );
   }, [visibleCount, team.length]);
 
   const nextSlide = () => setCurrentIndex((i) => Math.min(i + 1, maxIndex));
@@ -133,7 +134,10 @@ const HomeTeamSection = () => {
   const isAtEnd = currentIndex === maxIndex;
 
   return (
-    <section id="team" className="relative overflow-hidden bg-space py-8 sm:py-14 lg:py-14">
+    <section
+      id="team"
+      className="relative overflow-hidden bg-space py-8 sm:py-14 lg:py-14"
+    >
       {/* BACKGROUND */}
       <div className="pointer-events-none absolute inset-0">
         <motion.div
@@ -188,8 +192,8 @@ const HomeTeamSection = () => {
             transition={{ duration: 0.7, delay: 0.15 }}
           >
             <p className="max-w-[420px] font-inter text-sm leading-6 text-text-muted lg:text-right">
-              Scientists, engineers, explorers and leaders working together
-              to push the boundaries of what is possible.
+              Scientists, engineers, explorers and leaders working together to
+              push the boundaries of what is possible.
             </p>
           </motion.div>
         </div>
@@ -248,7 +252,9 @@ const HomeTeamSection = () => {
 
                     <div className="mt-3 flex items-center gap-2">
                       <MapPin size={12} className="text-white/30" />
-                      <span className="font-inter text-xs text-white/40">{member.location}</span>
+                      <span className="font-inter text-xs text-white/40">
+                        {member.location}
+                      </span>
                     </div>
 
                     <p className="mt-3 font-inter text-sm leading-6 text-text-muted line-clamp-3">
