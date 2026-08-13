@@ -139,7 +139,7 @@ const PageLoader = ({ onComplete, duration = 3400 }) => {
             <Rocket size={16} strokeWidth={1.5} />
           </motion.div>
           <span className="font-space-grotesk text-sm font-semibold tracking-[-0.02em]">
-            COSMO<span className="text-cyan">VENTURES</span>
+            ARCHIES<span className="text-cyan">WILLIAM</span>
           </span>
         </div>
 
