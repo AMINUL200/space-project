@@ -129,7 +129,7 @@ const Footer = () => {
 
               
 
-              <img src="/public/image/ARCHIES_WILLIAM_logo_white.png" alt="" className="h-20 w-full object-center" />
+              <img src="/image/ARCHIES_WILLIAM_logo_white.png" alt="" className="h-20 w-full object-center" />
             </a>
 
             <p className="mt-7 max-w-[520px] font-space-grotesk text-3xl font-medium leading-[1.1] tracking-[-0.035em] text-white sm:text-4xl">

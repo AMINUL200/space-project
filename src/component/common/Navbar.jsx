@@ -143,7 +143,7 @@ const Navbar = () => {
             "
           >
             <img
-              src="/public/image/ARCHIES_WILLIAM_logo_white.png"
+              src="/image/ARCHIES_WILLIAM_logo_white.png"
               alt="Archies William Logo"
               className="h-20 w-auto object-contain sm:h-14 lg:h-16"
             />
