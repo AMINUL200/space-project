@@ -20,7 +20,7 @@ const HomeContactUsSection = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-space py-8 sm:py-14 lg:py-14"
+      className="relative overflow-hidden bg-space py-24 sm:py-32 lg:py-40"
     >
       {/* =====================================================
           BACKGROUND ATMOSPHERE
@@ -92,8 +92,8 @@ const HomeContactUsSection = () => {
           </h2>
 
           <p className="mt-7 max-w-[650px] font-inter text-base leading-7 text-text-muted sm:text-lg">
-            Leading the way in metallurgical innovation, space technology,
-            and scientific excellence across India and the United States.
+            Leading the way in metallurgical innovation, space technology, and
+            scientific excellence across India and the United States.
           </p>
         </motion.div>
 
@@ -131,12 +131,23 @@ const HomeContactUsSection = () => {
               </span>
             </div>
 
-            <h3 className="relative z-10 mt-10 font-space-grotesk text-3xl font-medium leading-tight tracking-[-0.035em] text-white sm:text-4xl">
-              Main Office
-            </h3>
+            {/* Company Name Big Text */}
+            <div className="relative z-10 mt-6">
+              <h3 className="font-space-grotesk text-4xl font-bold leading-tight tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl">
+                ARCHIES
+                <br />
+                <span className="text-cyan">WILLIAM</span>
+              </h3>
+              <p className="mt-2 font-inter text-xs uppercase tracking-[0.2em] text-white/30">
+                Pvt Ltd.
+              </p>
+            </div>
 
             {/* Main Office Details */}
-            <div className="relative z-10 mt-8 space-y-5">
+            <div className="relative z-10 mt-8 space-y-5 border-t border-white/10 pt-8">
+            <h4 className="font-space-grotesk text-lg font-semibold text-white">
+              Main Office & Website Details
+            </h4>
               {/* Address */}
               <div className="flex items-start gap-4">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50">
@@ -144,7 +155,7 @@ const HomeContactUsSection = () => {
                 </span>
                 <div>
                   <p className="font-inter text-[9px] uppercase tracking-[0.15em] text-white/25">
-                    Address
+                    Main Office
                   </p>
                   <p className="mt-1 font-inter text-sm text-white/70 leading-tight">
                     425 3rd Street SW
@@ -174,7 +185,7 @@ const HomeContactUsSection = () => {
 
               {/* Email */}
               <a
-                href="mailto:info@boeing.net.in"
+                href="mailto:info@archieswilliam.com"
                 className="group flex items-center gap-4"
               >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50 transition-all duration-300 group-hover:border-cyan/30 group-hover:bg-cyan/10 group-hover:text-cyan">
@@ -185,14 +196,14 @@ const HomeContactUsSection = () => {
                     Email
                   </p>
                   <p className="mt-1 font-inter text-sm text-white/70 transition-colors group-hover:text-white">
-                    info@boeing.net.in
+                    info@archieswilliam.com
                   </p>
                 </div>
               </a>
 
               {/* Website */}
               <a
-                href="https://boeing.net.in"
+                href="https://archieswilliam.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-4"
@@ -205,7 +216,7 @@ const HomeContactUsSection = () => {
                     Website
                   </p>
                   <p className="mt-1 font-inter text-sm text-white/70 transition-colors group-hover:text-cyan">
-                    boeing.net.in
+                    archieswilliam.com
                   </p>
                 </div>
               </a>
@@ -240,25 +251,12 @@ const HomeContactUsSection = () => {
               <div className="flex items-center gap-3 mb-6">
                 <Building2 size={18} className="text-cyan" />
                 <h3 className="font-space-grotesk text-2xl font-medium text-white">
-                  Branch Offices & Project Sites
+                  Branch Offices
                 </h3>
               </div>
 
               <div className="space-y-6">
-                {/* US Branch */}
-                <div className="flex items-start gap-4">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50">
-                    <Globe size={16} />
-                  </span>
-                  <div>
-                    <p className="font-inter text-[9px] uppercase tracking-[0.15em] text-cyan">
-                      U.S Branch Office
-                    </p>
-                    <p className="mt-1 font-inter text-sm text-white/70 leading-tight">
-                      Arlington, Virginia
-                    </p>
-                  </div>
-                </div>
+              
 
                 {/* India Branch */}
                 <div className="flex items-start gap-4">
@@ -270,7 +268,7 @@ const HomeContactUsSection = () => {
                       India Branch Office
                     </p>
                     <p className="mt-1 font-inter text-sm text-white/70 leading-tight">
-                      Kolkata, West Bengal
+                      New Delhi, India
                     </p>
                   </div>
                 </div>
@@ -286,34 +284,146 @@ const HomeContactUsSection = () => {
                 </h3>
               </div>
 
-              <div className="space-y-6">
-                {/* Robert Kelly Ortberg */}
+              <div className="space-y-5">
+                {/* 1. Nicholas Horsburgh */}
+                <div className="flex items-start gap-4 pb-4 border-b border-white/5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50">
+                    <User size={16} />
+                  </span>
+                  <div>
+                    <p className="font-inter text-sm font-medium text-white">
+                      Nicholas Horsburgh
+                    </p>
+                    <p className="font-inter text-xs text-cyan/70">
+                      President & CEO
+                    </p>
+                    <a
+                      href="tel:+14107302656"
+                      className="mt-1 inline-flex items-center gap-1.5 text-xs text-white/40 hover:text-cyan transition-colors"
+                    >
+                      <Phone size={11} className="text-cyan/40" />
+                      (410) 730-2656
+                    </a>
+                  </div>
+                </div>
+
+                {/* 2. R. N. Chandra */}
+                <div className="flex items-start gap-4 pb-4 border-b border-white/5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50">
+                    <User size={16} />
+                  </span>
+                  <div>
+                    <p className="font-inter text-sm font-medium text-white">
+                      R. N. Chandra
+                    </p>
+                    <p className="font-inter text-xs text-cyan/70">
+                      India Head
+                    </p>
+                    <div className="mt-1 space-y-1">
+                      <a
+                        href="tel:+919873999392"
+                        className="inline-flex items-center gap-1.5 text-xs text-white/40 hover:text-cyan transition-colors"
+                      >
+                        <Phone size={11} className="text-cyan/40" />
+                        +91 9873999392
+                      </a>
+                      <br />
+                      <a
+                        href="tel:+917550755553"
+                        className="inline-flex items-center gap-1.5 text-xs text-white/40 hover:text-cyan transition-colors"
+                      >
+                        <Phone size={11} className="text-cyan/40" />
+                        +91 7550755553
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. Dr. Arjun Mehta */}
+                <div className="flex items-start gap-4 pb-4 border-b border-white/5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50">
+                    <User size={16} />
+                  </span>
+                  <div>
+                    <p className="font-inter text-sm font-medium text-white">
+                      Dr. Arjun Mehta
+                    </p>
+                    <p className="font-inter text-xs text-cyan/70">
+                      Chief Scientific Officer
+                    </p>
+                    <a
+                      href="tel:+917550755553"
+                      className="mt-1 inline-flex items-center gap-1.5 text-xs text-white/40 hover:text-cyan transition-colors"
+                    >
+                      <Phone size={11} className="text-cyan/40" />
+                      +91 7550755553
+                    </a>
+                  </div>
+                </div>
+
+                {/* 4. Ananya Sharma */}
+                <div className="flex items-start gap-4 pb-4 border-b border-white/5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50">
+                    <User size={16} />
+                  </span>
+                  <div>
+                    <p className="font-inter text-sm font-medium text-white">
+                      Ananya Sharma
+                    </p>
+                    <p className="font-inter text-xs text-cyan/70">
+                      Director, Space Systems
+                    </p>
+                    <a
+                      href="tel:+14107302656"
+                      className="mt-1 inline-flex items-center gap-1.5 text-xs text-white/40 hover:text-cyan transition-colors"
+                    >
+                      <Phone size={11} className="text-cyan/40" />
+                      (410) 730-2656
+                    </a>
+                  </div>
+                </div>
+
+                {/* 5. Daniel Williams */}
+                <div className="flex items-start gap-4 pb-4 border-b border-white/5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50">
+                    <User size={16} />
+                  </span>
+                  <div>
+                    <p className="font-inter text-sm font-medium text-white">
+                      Daniel Williams
+                    </p>
+                    <p className="font-inter text-xs text-cyan/70">
+                      Director, Engineering
+                    </p>
+                    <a
+                      href="tel:+14107302656"
+                      className="mt-1 inline-flex items-center gap-1.5 text-xs text-white/40 hover:text-cyan transition-colors"
+                    >
+                      <Phone size={11} className="text-cyan/40" />
+                      (410) 730-2656
+                    </a>
+                  </div>
+                </div>
+
+                {/* 6. Dr. Priya Nair */}
                 <div className="flex items-start gap-4">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50">
                     <User size={16} />
                   </span>
                   <div>
                     <p className="font-inter text-sm font-medium text-white">
-                      Mr. Robert Kelly Ortberg
+                      Dr. Priya Nair
                     </p>
                     <p className="font-inter text-xs text-cyan/70">
-                      President & CEO · Boeing
+                      Head of Earth Observation
                     </p>
-                  </div>
-                </div>
-
-                {/* Pankaj Mishra */}
-                <div className="flex items-start gap-4">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50">
-                    <Briefcase size={16} />
-                  </span>
-                  <div>
-                    <p className="font-inter text-sm font-medium text-white">
-                      Mr. Pankaj Mishra
-                    </p>
-                    <p className="font-inter text-xs text-white/50">
-                      Key Personnel
-                    </p>
+                    <a
+                      href="tel:+917550755553"
+                      className="mt-1 inline-flex items-center gap-1.5 text-xs text-white/40 hover:text-cyan transition-colors"
+                    >
+                      <Phone size={11} className="text-cyan/40" />
+                      +91 7550755553
+                    </a>
                   </div>
                 </div>
               </div>
